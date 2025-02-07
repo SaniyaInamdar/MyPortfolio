@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - About</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /*Responsive For About US*/
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Navigation */
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav_menu_list {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+
+  /* About Section Cards */
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  /* Image Responsive */
+  .image-container img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav id="header">
+      <div class="nav-logo">
+        <p class="nav-name">Logo</p>
+      </div>
+      <div class="nav-menu">
+        <ul class="nav_menu_list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active_link">About</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="about-section">
+      <h1>About Me</h1>
+      <div class="cards">
+        <!-- First Card: Image and About Information -->
+        <div class="card">
+          <div class="card-header">
+            <div class="image-container">
+              <img src="myimg.png" alt="Your Image" />
+            </div>
+            <h2>Hello, I am a Developer</h2>
+          </div>
+          <div class="card-body">
+            <p>I am a final-year BCA student with experience in web and software development. My skills include Java, Swing, MySQL, and web technologies like HTML, CSS, and JavaScript.</p>
+          </div>
+        </div>
+
+        <!-- Second Card: Skills and Proficiency -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Skills & Languages</h2>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>
+                <span>C</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </li>
+              <li>
+                <span>C++</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </li>
+              <li>
+                <span>Java</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+              </li>
+              <li>
+                <span>Python</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%"></div>
+                </div>
+              </li>
+              <li>
+                <span>JavaScript</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </li>
+              <li>
+                <span>HTML & CSS</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+              </li>
+              <li>
+                <span>MySQL</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+</html>
