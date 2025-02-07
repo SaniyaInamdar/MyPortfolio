@@ -10,40 +10,81 @@
 
 
 <style>
-  /* Responsive For Index Page*/
-/* Responsive Design for Home Page */
-@media (max-width: 768px) {
-  /* Hero Section */
+ /* Responsive Design */
+
+@media screen and (max-width: 1200px) {
   .hero-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
+  .hero-image {
+    order: -1;
+    margin-bottom: 20px;
+    margin-top: 80px; /* Increased margin to ensure no overlap with navigation */
+  }
+
   .hero-text {
-    max-width: 90%;
-    text-align: center;
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+  }
+
+  .motto {
+    font-size: 1.2rem;
+  }
+
+  .hero-image {
+    margin-top: 60px; /* Further adjusted spacing to prevent overlap */
   }
 
   .hero-image img {
-    width: 80%;
-    max-width: 250px;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2rem;
   }
 
-  /* Social Media Links */
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  .motto {
+    font-size: 1rem;
+  }
+
+  .download-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+  }
+
   .social-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 10px;
   }
 
-  /* Resume Button */
-  .download-btn {
-    padding: 12px 20px;
-    font-size: 16px;
-    width: 100%;
-    max-width: 200px;
+  .social-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
   }
 }
 
