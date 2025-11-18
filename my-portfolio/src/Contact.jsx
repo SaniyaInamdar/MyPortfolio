@@ -17,18 +17,21 @@ const Contact = () => {
   };
 
   // submit handler
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
+  const backendUrl = import.meta.env.VITE_API_URL;
+  console.log("Backend URL:", backendUrl);
 
-      await axios.post("http://localhost:8080/saveform", formData);
-      setStatus("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      setStatus("Failed to send. Try again!");
-    }
-  };
+  try {
+    await axios.post(backendUrl, formData);
+    setStatus("Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
+  } catch (error) {
+    console.error(error);
+    setStatus("Failed to send. Try again!");
+  }
+};
 
   return (
     <div className="container">
