@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Style.css";
-import axios from "axios";   
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,27 +10,34 @@ const Contact = () => {
 
   const [status, setStatus] = useState("");
 
-  // handle change
+  // handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // submit handler
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  // handle form submit (Formspree)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const backendUrl = import.meta.env.VITE_API_URL;
-  console.log("Backend URL:", backendUrl);
+    try {
+      const response = await fetch("https://formspree.io/f/xqanekgn", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.target),
+      });
 
-  try {
-    await axios.post(backendUrl, formData);
-    setStatus("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
-  } catch (error) {
-    console.error(error);
-    setStatus("Failed to send. Try again!");
-  }
-};
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+        e.target.reset();
+      } else {
+        setStatus("Failed to send. Try again!");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("Something went wrong!");
+    }
+  };
 
   return (
     <div className="container">
@@ -47,9 +53,9 @@ const Contact = () => {
               type="text"
               name="name"
               placeholder="Your Name"
+              required
               value={formData.name}
               onChange={handleChange}
-              required
             />
 
             <label>Email:</label>
@@ -57,18 +63,18 @@ const Contact = () => {
               type="email"
               name="email"
               placeholder="Your Email"
+              required
               value={formData.email}
               onChange={handleChange}
-              required
             />
 
             <label>Message:</label>
             <textarea
               name="message"
               placeholder="Your Message"
+              required
               value={formData.message}
               onChange={handleChange}
-              required
             ></textarea>
 
             <button type="submit">Submit</button>
