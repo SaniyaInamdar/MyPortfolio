@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Style.css";
+import axios from "axios";   
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,9 +21,8 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      //👇 When backend is ready, update your API URL here
-      // await axios.post("http://localhost:8080/contact/save", formData);
 
+      await axios.post("http://localhost:8080/saveform", formData);
       setStatus("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
